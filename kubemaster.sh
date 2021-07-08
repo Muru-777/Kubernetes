@@ -1,3 +1,4 @@
+#!/bin/sh
 #source: http://kubernetes.io/docs/getting-started-guides/kubeadm/
 
 ### setup terminal
