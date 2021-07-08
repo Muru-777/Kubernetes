@@ -55,7 +55,7 @@ systemctl enable kubelet && systemctl start kubelet && systemctl restart docker
 ### init k8s
 rm /root/.kube/config
 kubeadm reset -f
-sudo kubeadm init --apiserver-advertise-address=$1 --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU  --ignore-preflight-errors=Mem --skip-token-print
+sudo kubeadm init --apiserver-advertise-address=$(hostname -i) --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU  --ignore-preflight-errors=Mem --skip-token-print
 
 mkdir -p ~/.kube
 sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config
