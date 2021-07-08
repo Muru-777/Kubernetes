@@ -1,3 +1,7 @@
+# Mainly developed for AWS ubunutu instances(18.04 tested one). Once u logged in to the worker instance, run below command to deploy kubernetes cluster.
+#sudo -i
+#bash <(curl -s https://raw.githubusercontent.com/Muru-777/Kubernetes/main/kubeworker.sh)
+
 #!/bin/sh
 
 # Source: http://kubernetes.io/docs/getting-started-guides/kubeadm/
