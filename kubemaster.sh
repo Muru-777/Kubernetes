@@ -1,3 +1,7 @@
+# Mainly developed for AWS ubunutu instances(18.04 tested one). Once u logged in to the master instance, run below command to deploy kubernetes cluster.
+#sudo -i
+#bash <(curl -s https://raw.githubusercontent.com/Muru-777/Kubernetes/main/kubemaster.sh)
+
 #!/bin/sh
 #source: http://kubernetes.io/docs/getting-started-guides/kubeadm/
 
