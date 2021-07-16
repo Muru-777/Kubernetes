@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-completion
+spec:
+  completions: 2
+  template:
+    spec:
+      containers:
+      - name: job-completion
+        image: perl
+        args:
+        - /bin/sh
+        - -c
+        - date; echo sleeping; sleep 10s; echo exiting..;
+      restartPolicy: Never
+

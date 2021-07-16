@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-parallelism
+spec:
+  parallelism: 2
+  completions: 2
+  template:
+    spec:
+      containers:
+      - name: job-parallelism
+        image: perl
+        args:
+        - bin/sh
+        - -c
+        - echo sleeping; sleep 10s; echo exiting;
+      restartPolicy: Never

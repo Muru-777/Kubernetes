@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cronjob
+spec:
+  concurrencyPolicy: Forbid
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+     template:
+       spec:
+         containers:
+         - name: cronjob
+           image: perl
+           imagePullPolicy: Always
+           args:
+           - /bin/sh
+           - -c
+           - sleep 65s; echo exiting
+         restartPolicy: Never
