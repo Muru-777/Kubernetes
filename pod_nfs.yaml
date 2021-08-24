@@ -1,0 +1,20 @@
+apiversion: v1
+kind: Pod
+metadata:
+  name: pv-pod-nfs
+spec:
+  volumes:
+    name: pv-volume
+    persistentVolumeClaim:
+      claimName: pvc-nfs
+  containers:
+    - name: pv-container
+      image: 172.27.5.153:8082/nginx/nginx:latest
+      args:
+        - /bin/sh
+        - -c
+        - echo container started successfully; echo date;
+      voulmemounts:
+        - name: pv-volume
+          mountpath: /apps
+
