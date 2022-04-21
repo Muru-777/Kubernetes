@@ -1,0 +1,20 @@
+Deleting a terminating kubernetes resource.
+
+kubectl get namespace mysql-operator -o json \
+  | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/" \
+  | kubectl replace --raw /api/v1/namespaces/mysql-operator/finalize -f -
+
+kubectl get namespace mysql-operator -o json >tmp.json
+Kubectl proxy
+ curl -k -H "Content-Type: application/json" -X PUT --data-binary @tmp.json http://127.0.0.1:8001/api/v1/namespaces/mysql-operator/finalize
+
+Kubernetes deployment:
+
+Deleting forcefully:
+
+$ kubectl patch eventsource/pubsub-event-source -p '{"metadata":{"finalizers":[]}}' --type=merge -n argo-events
+Kubectl delete pod --force --grace-period=0 -n namespace pod nam
+
+Kubernets pod:
+
+Kubectl delete pod pod name —grace-period=0 —force
